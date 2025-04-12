@@ -12,7 +12,7 @@ export class UserService {
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    const user = this.userRepository.create(createUserDto); // Certifique-se que createUserDto não é um array
+    const user = this.userRepository.create(createUserDto);
     return await this.userRepository.save(user);
   }
 }

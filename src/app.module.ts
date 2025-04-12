@@ -1,5 +1,3 @@
-// src/app.module.ts
-
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserController } from './user/controller/user.controller';
@@ -8,12 +6,12 @@ import { User } from './user/entities/user.entity';
 import { UserRepository } from './user/repository/user.repository';
 import * as dotenv from 'dotenv';
 
-dotenv.config(); // <<< CARREGA as variáveis do .env
+dotenv.config();
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: process.env.DB_TYPE as any, // 'postgres' ou 'mysql'
+      type: process.env.DB_TYPE as any,
       host: process.env.DB_HOST,
       port: parseInt(process.env.DB_PORT || '5432', 10),
       username: process.env.DB_USERNAME,
